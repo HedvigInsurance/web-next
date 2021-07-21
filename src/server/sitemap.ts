@@ -60,6 +60,7 @@ const getSitemapLinks = async (logger: Logger): Promise<ReadonlyArray<Url>> => {
   const sitemapLinks = pages
     .filter(({ url }) => Boolean(url))
     .filter(({ page }) => page?.story?.content?.robots === 'index')
+    .filter(({ page }) => page?.story.content?.public === true)
     .map(({ url }) => ({
       url,
       priority: 0.7,

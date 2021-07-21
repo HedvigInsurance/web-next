@@ -3,7 +3,11 @@ import React from 'react'
 import { Caption } from 'components/Caption'
 import { ContentWrapper } from '../../components/blockHelpers'
 import { DeferredImage } from '../../components/DeferredImage'
-import { getStoryblokImage, Image as ImageType } from '../../utils/storyblok'
+import {
+  getImageDimensions,
+  getStoryblokImage,
+  Image as ImageType,
+} from '../../utils/storyblok'
 import {
   BrandPivotBaseBlockProps,
   MarkdownHtmlComponent,
@@ -42,7 +46,7 @@ export const ImageBlockBrandPivot: React.FunctionComponent<ImageBlockProps> = ({
     extraStyling={extra_styling}
   >
     <ImageWrapper>
-      <Image src={getStoryblokImage(image)} />
+      <Image src={getStoryblokImage(image)} {...getImageDimensions(image)} />
       {caption && <Caption caption={caption} />}
     </ImageWrapper>
   </StyledContentWrapper>

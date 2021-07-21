@@ -34,6 +34,19 @@ export const getStoryblokImage = (url?: Image) =>
       )
     : url
 
+export const getImageDimensions = (
+  url: Image,
+): { width?: number; height?: number } => {
+  const dimensions = url.match(/\b(\d+)x(\d+)\b/)
+
+  if (dimensions === null) return {}
+
+  return {
+    width: parseInt(dimensions[1], 10),
+    height: parseInt(dimensions[2], 10),
+  }
+}
+
 export type Image = string
 export interface NativeColor {
   uuid: string

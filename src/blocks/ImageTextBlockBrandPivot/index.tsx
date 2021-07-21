@@ -23,6 +23,7 @@ import {
 import { DeferredImage } from '../../components/DeferredImage'
 import { DeferredVideo } from '../../components/DeferredVideo'
 import {
+  getImageDimensions,
   getStoryblokImage,
   Image as StoryblokImage,
 } from '../../utils/storyblok'
@@ -391,6 +392,7 @@ export const ImageTextBlockBrandPivot: React.FunctionComponent<ImageTextBlockPro
                       displayorder={media_position}
                       smallImage={media_size_small}
                       src={getStoryblokImage(mobile_image)}
+                      {...getImageDimensions(mobile_image)}
                     />
                   </MediaQuery>
                   <MediaQuery query="(min-width: 481px)">
@@ -399,6 +401,7 @@ export const ImageTextBlockBrandPivot: React.FunctionComponent<ImageTextBlockPro
                       displayorder={media_position}
                       smallImage={media_size_small}
                       src={getStoryblokImage(image)}
+                      {...getImageDimensions(image)}
                     />
                   </MediaQuery>
                 </>
@@ -410,6 +413,7 @@ export const ImageTextBlockBrandPivot: React.FunctionComponent<ImageTextBlockPro
               displayorder={media_position}
               smallImage={media_size_small}
               src={getStoryblokImage(image)}
+              {...getImageDimensions(image)}
             />
           )
         ) : (
